@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     private char CURRENT_ACTION;
 
-    private double valueOne = Double.NaN;
-    private double valueTwo;
+    private double value1 = Double.NaN;
+    private double value2;
 
     private DecimalFormat decimalFormat;
 
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 computeCalculation();
                 CURRENT_ACTION = ADDITION;
-                binding.infoTextView.setText(decimalFormat.format(valueOne) + "+");
+                binding.infoTextView.setText(decimalFormat.format(value1) + "+");
                 binding.editText.setText(null);
             }
         });
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 computeCalculation();
                 CURRENT_ACTION = SUBTRACTION;
-                binding.infoTextView.setText(decimalFormat.format(valueOne) + "-");
+                binding.infoTextView.setText(decimalFormat.format(value1) + "-");
                 binding.editText.setText(null);
             }
         });
@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 computeCalculation();
                 CURRENT_ACTION = MULTIPLICATION;
-                binding.infoTextView.setText(decimalFormat.format(valueOne) + "*");
+                binding.infoTextView.setText(decimalFormat.format(value1) + "*");
                 binding.editText.setText(null);
             }
         });
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 computeCalculation();
                 CURRENT_ACTION = DIVISION;
-                binding.infoTextView.setText(decimalFormat.format(valueOne) + "/");
+                binding.infoTextView.setText(decimalFormat.format(value1) + "/");
                 binding.editText.setText(null);
             }
         });
@@ -159,8 +159,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 computeCalculation();
                 binding.infoTextView.setText(binding.infoTextView.getText().toString() +
-                        decimalFormat.format(valueTwo) + " = " + decimalFormat.format(valueOne));
-                valueOne = Double.NaN;
+                        decimalFormat.format(value2) + " = " + decimalFormat.format(value1));
+                value1 = Double.NaN;
                 CURRENT_ACTION = '0';
             }
         });
@@ -173,8 +173,8 @@ public class MainActivity extends AppCompatActivity {
                     binding.editText.setText(currentText.subSequence(0, currentText.length()-1));
                 }
                 else {
-                    valueOne = Double.NaN;
-                    valueTwo = Double.NaN;
+                    value1 = Double.NaN;
+                    value2 = Double.NaN;
                     binding.editText.setText("");
                     binding.infoTextView.setText("");
                 }
@@ -183,22 +183,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void computeCalculation() {
-        if(!Double.isNaN(valueOne)) {
-            valueTwo = Double.parseDouble(binding.editText.getText().toString());
+        if(!Double.isNaN(value1)) {
+            value2 = Double.parseDouble(binding.editText.getText().toString());
             binding.editText.setText(null);
 
             if(CURRENT_ACTION == ADDITION)
-                valueOne = this.valueOne + valueTwo;
+                value1 = this.value1 + value2;
             else if(CURRENT_ACTION == SUBTRACTION)
-                valueOne = this.valueOne - valueTwo;
+                value1 = this.value1 - value2;
             else if(CURRENT_ACTION == MULTIPLICATION)
-                valueOne = this.valueOne * valueTwo;
+                value1 = this.value1 * value2;
             else if(CURRENT_ACTION == DIVISION)
-                valueOne = this.valueOne / valueTwo;
+                value1 = this.value1 / value2;
         }
         else {
             try {
-                valueOne = Double.parseDouble(binding.editText.getText().toString());
+                value1 = Double.parseDouble(binding.editText.getText().toString());
             }
             catch (Exception e){}
         }
