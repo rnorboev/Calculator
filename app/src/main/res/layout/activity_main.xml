@@ -185,8 +185,8 @@
         android:text="+"
         android:textSize="20sp"
         android:layout_below="@+id/buttonSubtr"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_toRightOf="@+id/buttonClear"
+        android:layout_toEndOf="@+id/buttonClear" />
 
     <Button
         android:id="@+id/buttonClear"
@@ -195,8 +195,7 @@
         android:layout_height="wrap_content"
         android:text="C"
         android:textSize="20sp"
-        android:layout_alignBaseline="@+id/buttonAdd"
-        android:layout_alignBottom="@+id/buttonAdd"
+        android:layout_below="@+id/button3"
         android:layout_toRightOf="@+id/button0"
         android:layout_toEndOf="@+id/button0" />
 
