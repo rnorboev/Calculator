@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
-    private static final char ADDITION = '+';
-    private static final char SUBTRACTION = '-';
-    private static final char MULTIPLICATION = '*';
-    private static final char DIVISION = '/';
+    private static final char ADD = '+';
+    private static final char SUBTR = '-';
+    private static final char MULT = '*';
+    private static final char DIV = '/';
 
     private char CURRENT_ACTION;
 
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 computeCalculation();
-                CURRENT_ACTION = ADDITION;
+                CURRENT_ACTION = ADD;
                 binding.infoTextView.setText(decimalFormat.format(value1) + "+");
                 binding.editText.setText(null);
             }
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 computeCalculation();
-                CURRENT_ACTION = SUBTRACTION;
+                CURRENT_ACTION = SUBTR;
                 binding.infoTextView.setText(decimalFormat.format(value1) + "-");
                 binding.editText.setText(null);
             }
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 computeCalculation();
-                CURRENT_ACTION = MULTIPLICATION;
+                CURRENT_ACTION = MULT;
                 binding.infoTextView.setText(decimalFormat.format(value1) + "*");
                 binding.editText.setText(null);
             }
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 computeCalculation();
-                CURRENT_ACTION = DIVISION;
+                CURRENT_ACTION = DIV;
                 binding.infoTextView.setText(decimalFormat.format(value1) + "/");
                 binding.editText.setText(null);
             }
@@ -187,13 +187,13 @@ public class MainActivity extends AppCompatActivity {
             value2 = Double.parseDouble(binding.editText.getText().toString());
             binding.editText.setText(null);
 
-            if(CURRENT_ACTION == ADDITION)
+            if(CURRENT_ACTION == ADD)
                 value1 = this.value1 + value2;
-            else if(CURRENT_ACTION == SUBTRACTION)
+            else if(CURRENT_ACTION == SUBTR)
                 value1 = this.value1 - value2;
-            else if(CURRENT_ACTION == MULTIPLICATION)
+            else if(CURRENT_ACTION == MULT)
                 value1 = this.value1 * value2;
-            else if(CURRENT_ACTION == DIVISION)
+            else if(CURRENT_ACTION == DIV)
                 value1 = this.value1 / value2;
         }
         else {
